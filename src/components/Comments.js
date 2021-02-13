@@ -2,7 +2,7 @@ import React from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
 
-
+//Query for comments
 const COMMENTS = gql `
 query{
   comments(pagination: {limit: 2}){
@@ -12,14 +12,14 @@ query{
   }
 }
 `
-const Comments = (props) => {
+const Comments = () => {
 
   return (
     <div class="card text-white bg-dark mt-3 mb-3">
-    <div class="card-header">Top Comments:</div>
-    <div className='card-title text-center'></div>
-    <Query query={COMMENTS}>
-        { ({ loading, error, data }) =>  {
+      <div class="card-header">Top Comments:</div>
+      <div className='card-title text-center'></div>
+      <Query query={COMMENTS}>
+        {({ loading, error, data }) =>  {
           if(loading) return <h4>Loading</h4>
           if(error) console.log('Error')
           return <React.Fragment>

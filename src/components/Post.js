@@ -39,8 +39,9 @@ function TablePaginationActions(props) {
   );
 }
 
-const Post = ({data}) => {
+const Post = ({ data }) => {
  
+  //State to track pagination current page and posts per page
   const [page, setPage] = React.useState(0);
   const [postsPerPage, setPostsPerPage] = React.useState(5);
 
@@ -70,11 +71,11 @@ const Post = ({data}) => {
           onChangeRowsPerPage={handleChangeRowsPerPage}
           ActionsComponent={TablePaginationActions}
           />
-        </div>
-        <div>
-          {(postsPerPage > 0
-            ? data.posts.data.slice(page * postsPerPage, page * postsPerPage + postsPerPage): null).map((post) => ( <PostItem post={post}/>))}
-        </div>   
+      </div>
+      <div>
+        {(postsPerPage > 0
+          ? data.posts.data.slice(page * postsPerPage, page * postsPerPage + postsPerPage): null).map((post) => ( <PostItem post={post}/>))}
+      </div>   
     </Fragment>
   )
 }
